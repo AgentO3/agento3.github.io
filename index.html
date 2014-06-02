@@ -17,10 +17,17 @@ title: Blogging Like a Hacker
     <h1>{{post.title}} <br><date>{{ post.date | date: '%B %d, %Y' }}</date></h1>
   </header>
   {% endif %}
+    {% if post.type == 'link' %}
+    <p>
+    {{post.content | strip_html}}
+    </p>
+    <a href="{{ post.link }}" target="_blank">Goto Article</a>
+    {% else %}
     <p>
     {{post.content | strip_html | truncatewords: 35}}
     </p>
     <a href="{{ post.url }}">Read More</a>
+    {% endif %}
   </section>
   {% assign first_post = false %}
 {% endfor %}
