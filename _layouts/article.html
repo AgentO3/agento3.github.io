@@ -1,0 +1,15 @@
+---
+layout: main
+---
+
+<article>
+<header class="heading-image" style="background-image:url('{{page.image}}')">
+  <h1>{{page.title}} <br><date>{{ page.date | date_to_string }}</date></h1>
+</header>
+  <section class="article">
+    {{content}}
+  </section>
+  <!-- <footer class="article">
+    <a href="/"><i class="fa fa-reply"></i></a>
+  </footer> -->
+</article>

@@ -1,0 +1,39 @@
+---
+layout: main
+title: Blogging Like a Hacker
+---
+
+{% assign first_post = true %}
+<article id="front-page">
+{% for post in paginator.posts %}
+  {% if first_post %}
+  <header class="heading-image" style="background-image:url('{{post.image}}');">
+    <h1>{{post.title}} <br><date>{{ post.date | post.date | date: '%B %d, %Y' }}</date></h1>
+  </header>
+  <section class="teaser top">
+  {% else %}
+  <section class="teaser">
+  <header class="heading-basic">
+    <h1>{{post.title}} <br><date>{{ post.date | date: '%B %d, %Y' }}</date></h1>
+  </header>
+  {% endif %}
+    <p>
+    {{post.content | strip_html | truncatewords: 35}}
+    </p>
+    <a href="{{ post.url }}">Read More</a>
+  </section>
+  {% assign first_post = false %}
+{% endfor %}
+
+  <section class="pagination">
+    {% if paginator.previous_page == 1 %}
+    <a href="/" class="previous"><i class="fa fa-arrow-circle-o-left"></i></a>
+    {% endif %}
+    <!-- <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span> -->
+    {% if paginator.next_page %}
+    <a href="/page{{ paginator.next_page }}" class="next"><i class="fa fa-arrow-circle-o-right"></i></a>
+    {% else %}
+    <span class="next "><i class="fa fa-arrow-circle-o-right"></i></span>
+    {% endif %}
+  </section>
+</article>
