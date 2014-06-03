@@ -1,4 +1,6 @@
 name: AgentO3
+description: Code, Beer, and Legos
+url: http://agento3.me
 paginate: 3
 paginate_path: "page:num"
 markdown: kramdown
