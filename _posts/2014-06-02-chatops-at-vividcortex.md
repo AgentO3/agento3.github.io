@@ -1,5 +1,6 @@
 ---
 type: link
+layout: article
 link: https://vividcortex.com/blog/2014/06/02/chatops-at-vividcortex/
 title: ChatOps at VividCortex
 image: /img/2014/06/robots.jpg
